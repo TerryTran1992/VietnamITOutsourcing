@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Icon from './Icon'
+import BrandMark from './BrandMark'
 
 export default function Footer() {
   const year = 2026
@@ -9,11 +9,9 @@ export default function Footer() {
         <div className="footer-grid">
           <div>
             <div className="brand" style={{ color: '#fff', marginBottom: 12 }}>
-              <span className="flag">
-                <Icon name="star" size={17} filled />
-              </span>
-              <span>
-                Vietnam<b style={{ color: '#6db6ff' }}>IT</b>Outsourcing
+              <BrandMark size={36} id="footer" />
+              <span className="brand-text">
+                Vietnam<span style={{ color: '#6db6ff' }}>IT</span>Outsourcing
               </span>
             </div>
             <p style={{ fontSize: 14, maxWidth: 320, color: '#aab4cc' }}>

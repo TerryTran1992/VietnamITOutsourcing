@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import Icon from './Icon'
+import BrandMark from './BrandMark'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -8,12 +9,10 @@ export default function Navbar() {
   return (
     <header className="nav">
       <div className="container nav-inner">
-        <Link to="/" className="brand" onClick={close}>
-          <span className="flag">
-            <Icon name="star" size={17} filled />
-          </span>
-          <span>
-            Vietnam<b>IT</b>Outsourcing
+        <Link to="/" className="brand" onClick={close} aria-label="VietnamITOutsourcing home">
+          <BrandMark size={38} id="nav" />
+          <span className="brand-text">
+            Vietnam<span className="brand-accent">IT</span>Outsourcing
           </span>
         </Link>
 
@@ -32,6 +31,7 @@ export default function Navbar() {
           </NavLink>
           <Link className="btn btn-primary btn-sm nav-cta" to="/directory" onClick={close}>
             Find a partner
+            <Icon name="arrowRight" size={16} />
           </Link>
         </nav>
 

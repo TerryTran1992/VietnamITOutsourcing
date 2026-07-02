@@ -223,46 +223,45 @@ h4 {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 11px;
+  color: var(--ink);
+}
+.brand-text {
+  font-family: var(--font-display);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  font-size: 19px;
+  letter-spacing: -0.035em;
+  font-size: 20px;
+  line-height: 1;
 }
-.brand .flag {
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
-  display: grid;
-  place-items: center;
-  background: var(--flag);
-  color: var(--gold);
-  box-shadow: 0 2px 8px -2px rgba(218, 37, 29, 0.5);
-}
-.brand b {
+.brand-accent {
   color: var(--brand);
 }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 2px;
 }
-.nav-links a {
-  padding: 8px 14px;
-  border-radius: 999px;
+.nav-links a:not(.btn) {
+  padding: 9px 15px;
+  border-radius: 10px;
   font-weight: 500;
   color: var(--ink-soft);
   font-size: 15px;
+  transition: color 0.15s ease, background 0.15s ease;
 }
-.nav-links a:hover {
+.nav-links a:not(.btn):hover {
   background: var(--line-soft);
   color: var(--ink);
 }
-.nav-links a.active {
+.nav-links a:not(.btn).active {
   color: var(--brand);
   font-weight: 600;
+  background: var(--brand-soft);
 }
 .nav-cta {
-  margin-left: 8px;
+  margin-left: 12px;
+  background: linear-gradient(135deg, #3b82f6, var(--brand-ink));
+  letter-spacing: -0.01em;
 }
 .nav-toggle {
   display: none;
