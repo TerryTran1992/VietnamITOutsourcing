@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { companies, SERVICES } from '../data/companies'
 import { rankCompanies } from '../utils/scoring'
 import { CompanyRow } from '../components/CompanyCard'
+import Icon from '../components/Icon'
 
 const CITIES = ['Ho Chi Minh City', 'Hanoi', 'Da Nang']
 const SIZES = [
@@ -110,7 +111,9 @@ export default function Directory() {
           {/* FILTERS */}
           <aside className="filters">
             <div className="search" style={{ boxShadow: 'none', maxWidth: 'none', marginBottom: 8 }}>
-              <span className="icon">🔍</span>
+              <span className="icon">
+                <Icon name="search" size={17} />
+              </span>
               <input
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
@@ -179,8 +182,8 @@ export default function Directory() {
             </label>
 
             {(activeFilterCount > 0 || q || sort !== 'score') && (
-              <button className="filters-clear" onClick={clearAll}>
-                ✕ Clear all filters
+              <button className="filters-clear icon-inline" onClick={clearAll}>
+                <Icon name="x" size={14} /> Clear all filters
               </button>
             )}
           </aside>

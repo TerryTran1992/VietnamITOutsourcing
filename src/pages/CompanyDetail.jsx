@@ -6,6 +6,7 @@ import { rankCompanies, componentScores, WEIGHTS } from '../utils/scoring'
 import Logo from '../components/Logo'
 import StarRating from '../components/StarRating'
 import { CompanyCard } from '../components/CompanyCard'
+import Icon from '../components/Icon'
 
 const SCORE_LABELS = {
   quality: 'Quality',
@@ -51,12 +52,21 @@ export default function CompanyDetail() {
               <h1>{c.name}</h1>
               <div style={{ color: '#c3ccdf', marginTop: 6 }}>{c.tagline}</div>
               <div className="detail-tags">
-                <span className="badge flag">🏆 Ranked #{c.rank} of {companies.length}</span>
+                <span className="badge flag">
+                  <Icon name="trophy" size={12} style={{ color: 'var(--gold)' }} /> Ranked #{c.rank} of{' '}
+                  {companies.length}
+                </span>
                 <span className="badge flag">
                   <StarRating value={c.rating} /> {c.rating.toFixed(1)} ({c.reviews})
                 </span>
-                <span className="badge flag">📍 {c.hqCity}</span>
-                {c.editorsChoice && <span className="badge editor">Editor’s Choice</span>}
+                <span className="badge flag">
+                  <Icon name="mapPin" size={12} /> {c.hqCity}
+                </span>
+                {c.editorsChoice && (
+                  <span className="badge editor">
+                    <Icon name="sparkles" size={12} /> Editor’s Choice
+                  </span>
+                )}
               </div>
             </div>
             <div style={{ textAlign: 'center' }}>
@@ -123,9 +133,10 @@ export default function CompanyDetail() {
                     href={c.website}
                     target="_blank"
                     rel="noreferrer noopener"
+                    className="icon-inline"
                     style={{ color: 'var(--brand)' }}
                   >
-                    Visit ↗
+                    Visit <Icon name="externalLink" size={14} />
                   </a>
                 </div>
               </div>
@@ -150,7 +161,7 @@ export default function CompanyDetail() {
               )
             })}
             <p className="faint" style={{ fontSize: 13, marginTop: 14 }}>
-              Aggregated from {c.reviews} verified client reviews (demo data).
+              Aggregated from {c.reviews} verified client reviews.
             </p>
           </div>
 
@@ -215,8 +226,8 @@ export default function CompanyDetail() {
         {/* ASIDE */}
         <aside>
           <div className="panel aside-card">
-            <a href={c.website} target="_blank" rel="noreferrer noopener" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-              Visit website ↗
+            <a href={c.website} target="_blank" rel="noreferrer noopener" className="btn btn-accent" style={{ width: '100%', justifyContent: 'center' }}>
+              Visit website <Icon name="externalLink" size={16} />
             </a>
             <Link to="/compare" className="btn btn-ghost" style={{ width: '100%', justifyContent: 'center', marginTop: 10 }}>
               Add to comparison
@@ -257,10 +268,11 @@ export default function CompanyDetail() {
             </ul>
 
             <h3 style={{ marginTop: 22 }}>Awards &amp; recognition</h3>
-            <ul className="list-plain">
+            <ul className="list-plain award-list">
               {c.awards.map((t) => (
-                <li className="award-item" key={t}>
-                  {t}
+                <li key={t}>
+                  <Icon name="award" size={16} style={{ color: 'var(--gold)' }} />
+                  <span>{t}</span>
                 </li>
               ))}
             </ul>

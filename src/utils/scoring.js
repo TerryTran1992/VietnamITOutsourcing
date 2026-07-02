@@ -9,12 +9,12 @@
 // The final VITO Score is on a 0–100 scale.
 
 export const WEIGHTS = [
-  { key: 'rating', label: 'Client rating', weight: 0.32 },
-  { key: 'delivery', label: 'Quality, schedule, cost & communication', weight: 0.26 },
-  { key: 'retention', label: 'Client retention', weight: 0.16 },
+  { key: 'rating', label: 'Client rating', weight: 0.3 },
+  { key: 'delivery', label: 'Quality, schedule, cost & communication', weight: 0.24 },
+  { key: 'retention', label: 'Client retention', weight: 0.14 },
   { key: 'credentials', label: 'Certifications & awards', weight: 0.12 },
-  { key: 'reviews', label: 'Verified review volume', weight: 0.08 },
-  { key: 'scale', label: 'Delivery scale (talent)', weight: 0.06 },
+  { key: 'reviews', label: 'Verified review volume', weight: 0.1 },
+  { key: 'scale', label: 'Delivery scale (talent)', weight: 0.1 },
 ]
 
 function clamp(n, min = 0, max = 100) {

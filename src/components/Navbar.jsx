@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import Icon from './Icon'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -8,7 +9,9 @@ export default function Navbar() {
     <header className="nav">
       <div className="container nav-inner">
         <Link to="/" className="brand" onClick={close}>
-          <span className="flag">★</span>
+          <span className="flag">
+            <Icon name="star" size={17} filled />
+          </span>
           <span>
             Vietnam<b>IT</b>Outsourcing
           </span>
@@ -35,9 +38,10 @@ export default function Navbar() {
         <button
           className="nav-toggle"
           aria-label="Toggle menu"
+          aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? '✕' : '☰'}
+          <Icon name={open ? 'x' : 'menu'} size={20} />
         </button>
       </div>
     </header>

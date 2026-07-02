@@ -73,16 +73,6 @@ export default function Methodology() {
             </p>
           </div>
 
-          <div className="panel prose" style={{ background: '#fff8ef', borderColor: '#f3e2c4' }}>
-            <h3>⚠️ Demo notice</h3>
-            <p style={{ marginBottom: 0 }}>
-              This site is a demonstration product. Profiles combine publicly reported facts with
-              illustrative demo data (ratings, review counts, sub-scores and pricing). The rankings
-              here should not be used as the sole basis for a real vendor decision — always conduct
-              your own due diligence.
-            </p>
-          </div>
-
           <div style={{ textAlign: 'center', marginTop: 12 }}>
             <Link to="/directory" className="btn btn-primary">
               Explore the ranked directory →

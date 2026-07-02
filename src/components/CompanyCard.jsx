@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Logo from './Logo'
 import StarRating from './StarRating'
+import Icon from './Icon'
 
 function rankClass(rank) {
   if (rank === 1) return 'gold'
@@ -20,10 +21,14 @@ export function CompanyCard({ company }) {
         <div style={{ minWidth: 0 }}>
           <div className="co-name">
             {c.name}
-            {c.verified && <span className="verified" title="Verified profile">✔</span>}
+            {c.verified && (
+              <span className="verified" title="Verified profile">
+                <Icon name="badgeCheck" size={17} filled />
+              </span>
+            )}
           </div>
-          <div className="co-loc">
-            📍 {c.hqCity} · Est. {c.founded}
+          <div className="co-loc icon-inline">
+            <Icon name="mapPin" size={14} /> {c.hqCity} · Est. {c.founded}
           </div>
         </div>
       </div>
@@ -60,7 +65,9 @@ export function CompanyCard({ company }) {
           {c.score}
           <small>VITO</small>
         </span>
-        <span className="btn btn-ghost btn-sm">View profile →</span>
+        <span className="btn btn-ghost btn-sm">
+          View profile <Icon name="arrowRight" size={15} />
+        </span>
       </div>
     </Link>
   )
@@ -79,11 +86,19 @@ export function CompanyRow({ company }) {
           <div style={{ minWidth: 0 }}>
             <div className="co-name">
               {c.name}
-              {c.verified && <span className="verified" title="Verified">✔</span>}
-              {c.editorsChoice && <span className="badge editor">Editor’s Choice</span>}
+              {c.verified && (
+                <span className="verified" title="Verified">
+                  <Icon name="badgeCheck" size={17} filled />
+                </span>
+              )}
+              {c.editorsChoice && (
+                <span className="badge editor">
+                  <Icon name="sparkles" size={12} /> Editor’s Choice
+                </span>
+              )}
             </div>
-            <div className="co-loc">
-              📍 {c.hqCity} · {c.employeeRange} staff · Est. {c.founded}
+            <div className="co-loc icon-inline">
+              <Icon name="mapPin" size={14} /> {c.hqCity} · {c.employeeRange} staff · Est. {c.founded}
             </div>
           </div>
         </div>
@@ -111,7 +126,9 @@ export function CompanyRow({ company }) {
         <span className="faint" style={{ fontSize: 13 }}>
           {c.reviews} reviews · {c.hourlyRate}
         </span>
-        <span className="btn btn-primary btn-sm">View profile →</span>
+        <span className="btn btn-primary btn-sm">
+          View profile <Icon name="arrowRight" size={15} />
+        </span>
       </div>
     </Link>
   )

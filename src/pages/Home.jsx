@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { companies } from '../data/companies'
 import { rankCompanies } from '../utils/scoring'
 import { CompanyCard } from '../components/CompanyCard'
+import Icon from '../components/Icon'
 
 export default function Home() {
   const ranked = useMemo(() => rankCompanies(companies), [])
@@ -26,8 +27,13 @@ export default function Home() {
         <div className="container hero-inner">
           <div>
             <div className="hero-badges">
-              <span className="badge flag">🇻🇳 Vietnam · 2026 Edition</span>
-              <span className="badge flag">Independent &amp; data-driven</span>
+              <span className="badge flag">
+                <Icon name="star" size={12} filled style={{ color: 'var(--gold)' }} /> Vietnam · 2026
+                Edition
+              </span>
+              <span className="badge flag">
+                <Icon name="shieldCheck" size={12} /> Independent &amp; data-driven
+              </span>
             </div>
             <h1>
               Find Vietnam’s best <span className="grad">IT outsourcing</span> partner
@@ -39,7 +45,9 @@ export default function Home() {
             </p>
 
             <form className="search hero-search" onSubmit={submit}>
-              <span className="icon">🔍</span>
+              <span className="icon">
+                <Icon name="search" size={19} />
+              </span>
               <input
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
@@ -69,7 +77,9 @@ export default function Home() {
 
           {/* Leaderboard preview */}
           <div className="leaderboard-card">
-            <h3>🏆 Top-ranked this month</h3>
+            <h3 className="icon-inline">
+              <Icon name="trophy" size={17} style={{ color: 'var(--gold)' }} /> Top-ranked this month
+            </h3>
             <p className="faint" style={{ fontSize: 13, marginTop: 0, color: '#8fa0c0' }}>
               By VITO Score · updated Jul 2026
             </p>
@@ -79,7 +89,9 @@ export default function Home() {
                 className={`lb-row ${c.rank === 1 ? 'top' : ''}`}
                 key={c.id}
               >
-                <span className="lb-rank">{c.rank === 1 ? '★' : c.rank}</span>
+                <span className="lb-rank">
+                  {c.rank === 1 ? <Icon name="star" size={15} filled /> : c.rank}
+                </span>
                 <span className="lb-name">{c.name}</span>
                 <span className="lb-score">{c.score}</span>
               </Link>
@@ -89,7 +101,7 @@ export default function Home() {
               className="btn btn-light btn-sm"
               style={{ width: '100%', justifyContent: 'center', marginTop: 12 }}
             >
-              View full ranking →
+              View full ranking <Icon name="arrowRight" size={15} />
             </Link>
           </div>
         </div>
@@ -100,13 +112,15 @@ export default function Home() {
         <div className="container">
           <div className="grid cols-4">
             {[
-              { ic: '✅', t: 'Verified profiles', d: 'Every firm profile is checked against public records and client reviews.' },
-              { ic: '📊', t: 'Transparent ranking', d: 'Our open VITO Score formula weights satisfaction, value and quality — not ad spend.' },
-              { ic: '⚖️', t: 'Compare side by side', d: 'Shortlist and compare up to four companies across every metric that matters.' },
-              { ic: '🌏', t: 'Built for buyers', d: 'Filter by budget, team size, location and expertise to find the right fit fast.' },
+              { ic: 'badgeCheck', t: 'Verified profiles', d: 'Every firm profile is checked against public records and client reviews.' },
+              { ic: 'barChart', t: 'Transparent ranking', d: 'Our open VITO Score formula weights satisfaction, value and quality — not ad spend.' },
+              { ic: 'compare', t: 'Compare side by side', d: 'Shortlist and compare up to four companies across every metric that matters.' },
+              { ic: 'globe', t: 'Built for buyers', d: 'Filter by budget, team size, location and expertise to find the right fit fast.' },
             ].map((f) => (
               <div className="feature" key={f.t}>
-                <div className="ic">{f.ic}</div>
+                <div className="ic">
+                  <Icon name={f.ic} size={22} />
+                </div>
                 <h3>{f.t}</h3>
                 <p>{f.d}</p>
               </div>
@@ -128,7 +142,7 @@ export default function Home() {
               </p>
             </div>
             <Link to="/directory" className="btn btn-ghost">
-              Browse all {companies.length} companies →
+              Browse all {companies.length} companies <Icon name="arrowRight" size={16} />
             </Link>
           </div>
 
